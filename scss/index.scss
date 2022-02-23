@@ -1,0 +1,57 @@
+@import 'media';
+
+@mixin anim {
+    background-size: cover;
+    transition: all ease-in-out 300ms;
+    &:hover{
+        background-position: center;
+    }
+}
+
+//Portfolio
+.portfolio{
+    padding: 1%;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: repeat(6,1fr) ;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 20px;
+}
+
+
+.portfolio-item{
+    background: $accent;
+    color: $body-background;
+    font-weight: $font-bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.medium{
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    &.large{
+        grid-row: span 3;
+        grid-column: span 3;
+        background-image: url('..//graphics/flappy.jpeg');
+        @include anim();
+    }
+    &.tall{
+        grid-row: span 3;
+        grid-column: span 2;
+        background-image: url('..//graphics/upload.jpeg');
+        @include anim();
+        background-size: unset;
+    }
+    &.wide {
+        grid-row: span 2;
+        grid-column: span 3;
+        background-image: url(//unsplash.it/900/300);
+        @include anim();
+    }
+    a{
+        width: 100%;
+        height: 100%;
+    }
+
+}
